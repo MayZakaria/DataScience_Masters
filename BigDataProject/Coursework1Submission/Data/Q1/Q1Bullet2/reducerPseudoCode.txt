@@ -1,0 +1,18 @@
+  Initialize variables: current_date, min_relative_humidity = infinity
+
+  For each line in standard input:
+      Split the line by tab as a delimiter
+      Extract 'Date' and 'Relative Humidity' values
+      Convert 'Relative Humidity' to an integer
+
+      If current_date is None:
+          Set current_date to the extracted date
+
+      If current_date is different from the extracted date:
+          Print the date as a key and the minimum relative_humidity for the previous date as a value
+
+          Reset current_date and min_relative_humidity for the new date
+
+      Update min_relative_humidity with the extracted relative_humidity
+
+  Print the date and minimum relative_humidity for the last date

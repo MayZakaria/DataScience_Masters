@@ -1,0 +1,43 @@
+
+mkdir docs
+
+unzip british-fiction-corpus.zip
+
+cp ./CW1/Q2/docs/british-fiction-corpus/* ./CW1/Q2/docs/
+
+hadoop fs -copyFromLocal docs ./CW1/Q2/
+
+
+1) create sequence files from the raw text
+mahout seqdirectory -i ./CW1/Q2/docs -o docs-seqfiles -c UTF-8 -chunk 5
+
+2) create a sparse (efficient) representation of the vectors
+mahout seq2sparse -nv -i docs-seqfiles -o docs-vectors
+
+2) Note there are two kinds of vectors: TF (term frequency) and TF*IDF (term frequency / inverse document frequency)
+to check the resulted vectors:
+hadoop fs -ls docs-vectors
+
+2) initialisation approximate centroids for K-Means
+mahout canopy -i docs-vectors/tfidf-vectors -ow -o docs-vectors/docs-canopy-centroids -dm org.apache.mahout.common.distance.EuclideanDistanceMeasure -t1 1 -t2 0.5
+mahout canopy -i docs-vectors/tfidf-vectors -ow -o docs-vectors/docs-canopy-centroids -dm org.apache.mahout.common.distance.ManhattanDistanceMeasure -t1 1 -t2 0.5
+mahout canopy -i docs-vectors/tfidf-vectors -ow -o docs-vectors/docs-canopy-centroids -dm org.apache.mahout.common.distance.CosineDistanceMeasure -t1 0.6 -t2 0.3
+
+2) get the initial centroids resulted from the above command:
+hadoop fs -ls docs-vectors/docs-canopy-centroids
+
+mahout seqdumper -i docs-vectors/docs-canopy-centroids/clusters-0-final/part-r-00000
+
+3) run the K-Means algorithm ( with Mahout )
+mahout kmeans -i docs-vectors/tfidf-vectors -c docs-canopy-centroids -o hdfs://lena/user/userid/docs-kmeans-clusters -dm org.apache.mahout.common.distance.EuclideanDistanceMeasure -cl -cd 0.1 -ow -x 25 -k 5
+mahout kmeans -i docs-vectors/tfidf-vectors -c docs-canopy-centroids -o hdfs://lena/user/userid/docs-kmeans-clusters -dm org.apache.mahout.common.distance.ManhattanDistanceMeasure -cl -cd 0.1 -ow -x 25 -k 5
+mahout kmeans -i docs-vectors/tfidf-vectors -c docs-canopy-centroids -o hdfs://lena/user/userid/docs-kmeans-clusters -dm org.apache.mahout.common.distance.CosineDistanceMeasure -cl -cd 0.1 -ow -x 25 -k 5
+
+4) get the final iteration’s clustering solution
+hadoop fs -ls docs-kmeans-clusters
+
+5) evaluate the final solution
+mahout clusterdump -dt sequencefile -d docs-vectors/dictionary.file-* -i docs-kmeans-clusters/clusters-2-final -o clusters.txt -b 100 -p docs-kmeans-clusters/clusteredPoints -n 20 --evaluate
+
+6) to see the data points assigned to each cluster:
+mahout seqdumper -i  ./docs-kmeans-clusters/clusteredPoints/part-m-00000

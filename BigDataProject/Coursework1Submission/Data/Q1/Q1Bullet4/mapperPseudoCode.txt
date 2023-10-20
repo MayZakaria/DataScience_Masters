@@ -1,0 +1,11 @@
+  Read the header from standard input
+  Split the header by comma as a delimiter
+  Extract the indices of 'Dry Bulb Temp', 'Relative Humidity', and 'Wind Speed' columns
+  For each line in standard input:
+      Split the line by comma as a delimiter
+      Check if the line has the expected number of columns:
+          Extract 'Date', 'Dry Bulb Temp', 'Relative Humidity', and 'Wind Speed' values
+          Check if all the values are valid (not empty or '-'):
+            Merge 'Dry Bulb Temp', 'Relative Humidity', and 'Wind Speed' sub-values
+            Convert sub-values to floats
+            Print 'Date', 'Dry Bulb Temp', 'Relative Humidity', and 'Wind Speed' as key-value pairs

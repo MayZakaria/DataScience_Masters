@@ -1,0 +1,7 @@
+hadoop fs -copyFromLocal mapper.py  ./CW1/Q1/Q1Bullet2
+      
+hadoop fs -copyFromLocal reducer.py  ./CW1/Q1/Q1Bullet2
+
+hadoop jar /opt/hadoop/current/share/hadoop/tools/lib/hadoop-streaming-3.3.0.jar -file mapper.py -mapper mapper.py -file reducer.py -reducer reducer.py -input CW1/Q1/200704hourly.txt  -output CW1/Q1/Q1Bullet2/output2
+
+hadoop fs -cat ./CW1/Q1/Q1Bullet2/output2/part-00000

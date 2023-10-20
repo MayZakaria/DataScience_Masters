@@ -1,0 +1,19 @@
+  Initialize variables: current_date, total_dew_point_temp, total_squared_dew_point_temp, count = 0
+
+  For each line in standard input:
+      Split the line by tab as a delimiter
+      Extract 'Date' and 'Dew Point Temp' values
+      Convert 'Dew Point Temp' to float
+
+      If current_date is None:
+          Set current_date to the extracted date
+
+      If current_date is different from the extracted date:
+          Calculate average and variance for the current date
+          Print date as a key, average and variance as value for the previous date
+
+          Reset variables for the new date
+
+      Update total_dew_point_temp, count, and total_squared_dew_point_temp for the current date
+
+  Calculate and output the average and variance for the last date

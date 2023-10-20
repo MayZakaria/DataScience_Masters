@@ -1,0 +1,18 @@
+    Initialize variables: current_date, min_wind_speed = infinity, max_wind_speed = negative infinity
+
+    For each line in standard input:
+        Split the line by tab as a delimiter
+        Extract 'Date' and 'Wind Speed' values
+        Convert 'Wind Speed' to an integer
+
+        If current_date is None:
+            Set current_date to the extracted date
+
+        If current_date is different from the extracted date:
+            Print the date as a key and the difference between max_wind_speed and min_wind_speed for the previous date as a value
+
+            Reset current_date, min_wind_speed, and max_wind_speed for the new date
+
+        Update min_wind_speed and max_wind_speed with the extracted wind_speed
+
+    Print the date as a key and difference between max_wind_speed and min_wind_speed as a value for the last date

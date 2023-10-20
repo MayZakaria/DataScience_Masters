@@ -1,0 +1,11 @@
+  Read header from standard input
+  Split the header by comma as a delimiter
+  Extract 'Dew Point Temp' column index
+  For each line in standard input:
+      Split the line by comma as a delimiter
+      Check if the line has the expected number of columns:
+          Extract 'Date' and 'Dew Point Temp' values
+          If 'Dew Point Temp' value is valid (not empty or '-'):
+              Merge 'Dew Point Temp' sub-values
+              Convert 'Dew Point Temp' sub-values to float
+              Print 'Date' and 'Dew Point Temp' as key-value pair

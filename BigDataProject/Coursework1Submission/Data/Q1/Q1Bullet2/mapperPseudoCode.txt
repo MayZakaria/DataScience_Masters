@@ -1,0 +1,11 @@
+  Read header from standard input
+  Split the header by comma as a delimiter
+  Extract 'Relative Humidity' column index
+  For each line in standard input:
+      Split the line by a comma as a delimiter
+      Check if the line has the expected number of columns:
+          Extract 'Date' and 'Relative Humidity' values
+          If 'Relative Humidity' value is valid (not empty or '-'):
+              Merge 'Relative Humidity' sub-values
+              Convert 'Relative Humidity' sub-values to integer
+              Print 'Date' and 'Relative Humidity' as key-value pair

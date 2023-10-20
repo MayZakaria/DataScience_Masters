@@ -1,0 +1,61 @@
+-----
+matplotlib          3.2.2
+numpy               1.19.5
+pandas              1.1.5
+seaborn             0.11.2
+session_info        1.0.0
+-----
+-----
+IPython             5.5.0
+jupyter_client      5.3.5
+jupyter_core        4.9.1
+notebook            5.3.1
+-----
+Python 3.7.12 (default, Sep 10 2021, 00:21:48) [GCC 7.5.0]
+Linux-5.4.144+-x86_64-with-Ubuntu-18.04-bionic
+-----
+modules imported as dependencies
+-----
+PIL                         7.1.2
+astor                       0.8.1
+bottleneck                  1.3.2
+cffi                        1.15.0
+cycler                      0.10.0
+cython_runtime              NA
+dateutil                    2.8.2
+debugpy                     1.0.0
+decorator                   4.4.2
+google                      NA
+ipykernel                   4.10.1
+ipython_genutils            0.2.0
+ipywidgets                  7.6.5
+kiwisolver                  1.3.2
+mpl_toolkits                NA
+pexpect                     4.8.0
+pickleshare                 0.7.5
+pkg_resources               NA
+portpicker                  NA
+prompt_toolkit              1.0.18
+psutil                      5.4.8
+ptyprocess                  0.7.0
+pydev_ipython               NA
+pydevconsole                NA
+pydevd                      2.0.0
+pydevd_concurrency_analyser NA
+pydevd_file_utils           NA
+pydevd_plugins              NA
+pydevd_tracing              NA
+pygments                    2.6.1
+pyparsing                   3.0.6
+pytz                        2018.9
+scipy                       1.4.1
+simplegeneric               NA
+sitecustomize               NA
+six                         1.15.0
+sphinxcontrib               NA
+statsmodels                 0.10.2
+storemagic                  NA
+tornado                     5.1.1
+traitlets                   5.1.1
+wcwidth                     0.2.5
+zmq                         22.3.0

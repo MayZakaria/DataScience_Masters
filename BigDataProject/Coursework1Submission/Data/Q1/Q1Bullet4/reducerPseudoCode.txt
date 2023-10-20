@@ -1,0 +1,27 @@
+Initialize empty lists for dry_bulb_temp_values, relative_humidity_values, and wind_speed_values
+  Initialize n as 0
+
+  For each line in standard input:
+      Split line into date and values by tab as a delimiter
+      Split values by comma as a delimiter
+      Convert values to floats and store in dry_bulb_temp, relative_humidity, and wind_speed
+
+      Append dry_bulb_temp sub-values to dry_bulb_temp_values main list
+      Append relative_humidity sub-values to relative_humidity_values main list
+      Append wind_speed sub-values to wind_speed_values main list
+
+      Increment n by 1
+
+      Calculate sums of each column/list (dry_bulb_temp_values, relative_humidity_values, and wind_speed_values)
+
+      Calculate sums of products between columns
+
+      Calculate sums of squares for each column
+
+      Calculate the correlation coefficients:
+          correlation_matrix = 3x3 matrix
+          Fill the matrix with appropriate values based on the provided formula using the sums and n
+
+  Output the correlation matrix:
+      For each row in correlation_matrix:
+          Print elements of the row separated by tab

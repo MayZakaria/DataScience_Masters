@@ -1,0 +1,11 @@
+    Read header from standard input
+    Split the header by comma as a delimiter
+    Extract 'Wind Speed' column index
+    For each line in standard input:
+        Split the line by comma as a delimiter
+        Check if the line has the expected number of columns:
+            Extract 'Date' and 'Wind Speed' values
+            If 'Wind Speed' value is valid (not empty or '-'):
+                Merge 'Wind Speed' sub-values
+                Convert 'Wind Speed' sub-values to integer
+                Print 'Date' and 'Wind Speed' as key-value pair
